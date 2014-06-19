@@ -49,3 +49,9 @@ Original Perl version is:
 
     This library is free software; you can redistribute it and/or modify
     it under the same terms as Perl itself.
+
+# SEE ALSO
+
+This command is ported from Perl version.
+
+Ref. https://github.com/yappo/p5-git-xlsx-textconv.pl
