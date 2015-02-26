@@ -22,6 +22,9 @@ func main() {
 
 	for _, sheet := range xlFile.Sheets {
 		for _, row := range sheet.Rows {
+			if (row == nil) {
+				continue;
+			}
 			cels := make([]string, len(row.Cells))
 			for i, cell := range row.Cells {
 				s := cell.String()
