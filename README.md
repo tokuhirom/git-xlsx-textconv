@@ -55,3 +55,7 @@ Original Perl version is:
 This command is ported from Perl version.
 
 Ref. https://github.com/yappo/p5-git-xlsx-textconv.pl
+
+There is python port:
+
+https://gist.github.com/nmz787/c43bc109db915064f188
