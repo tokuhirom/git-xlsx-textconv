@@ -27,7 +27,7 @@ func main() {
 			}
 			cels := make([]string, len(row.Cells))
 			for i, cell := range row.Cells {
-				s := cell.String()
+				s, _ := cell.String()
 				s = strings.Replace(s, "\\", "\\\\", -1)
 				s = strings.Replace(s, "\n", "\\n", -1)
 				s = strings.Replace(s, "\r", "\\r", -1)
