@@ -31,7 +31,7 @@ func main() {
 				if cell.Type() == xlsx.CellTypeFormula {
 					s = cell.Formula()
 				} else {
-					s, _ = cell.String()
+					s = cell.String()
 				}
 
 				s = strings.Replace(s, "\\", "\\\\", -1)
