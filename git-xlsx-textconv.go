@@ -28,7 +28,7 @@ func main() {
 			cels := make([]string, len(row.Cells))
 			for i, cell := range row.Cells {
 				var s string
-				if cell.Type() == xlsx.CellTypeFormula {
+				if cell.Type() == xlsx.CellTypeStringFormula {
 					s = cell.Formula()
 				} else {
 					s = cell.String()
