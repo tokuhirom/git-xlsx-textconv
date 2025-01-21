@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"io"
 	"log"
 	"os"
 	"strings"
@@ -9,15 +10,10 @@ import (
 	xlsx "github.com/tealeg/xlsx"
 )
 
-func main() {
-	if len(os.Args) != 2 {
-		log.Fatal("Usage: git-xlsx-textconv file.xlsx")
-	}
-	excelFileName := os.Args[1]
-
-	xlFile, err := xlsx.OpenFile(excelFileName)
+func textconv(filename string, w io.Writer) error {
+	xlFile, err := xlsx.OpenFile(filename)
 	if err != nil {
-		log.Fatal(err)
+		return err
 	}
 
 	for _, sheet := range xlFile.Sheets {
@@ -41,7 +37,21 @@ func main() {
 
 				cels[i] = s
 			}
-			fmt.Printf("[%s] %s\n", sheet.Name, strings.Join(cels, "\t"))
+			fmt.Fprintf(w, "[%s] %s\n", sheet.Name, strings.Join(cels, "\t"))
 		}
+	}
+
+	return nil
+}
+
+func main() {
+	if len(os.Args) != 2 {
+		log.Fatal("Usage: git-xlsx-textconv file.xlsx")
+	}
+	excelFileName := os.Args[1]
+
+	err := textconv(excelFileName, os.Stdout)
+	if err != nil {
+		log.Fatal(err)
 	}
 }

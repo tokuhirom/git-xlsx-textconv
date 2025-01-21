@@ -5,9 +5,6 @@ git diff wrapper for xlsx file.
 <img src="http://t.co/5Epi6NXHZ5">
 
 # install
-* Go 1.17 or older  
-`$ go get github.com/tokuhirom/git-xlsx-textconv`
-* Go 1.18 or later  
 `$ go install github.com/tokuhirom/git-xlsx-textconv@latest`
     
 # .gitconfig
